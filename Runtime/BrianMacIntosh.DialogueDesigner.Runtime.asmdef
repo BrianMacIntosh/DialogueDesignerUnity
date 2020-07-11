@@ -1,3 +1,15 @@
-﻿{
-	"name": "BrianMacIntosh.DialogueDesigner.Runtime"
+{
+    "name": "BrianMacIntosh.DialogueDesigner.Runtime",
+    "references": [
+        "GUID:e43abe3f78cb4719839c90aff3512fb1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
