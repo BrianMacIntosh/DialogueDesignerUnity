@@ -20,6 +20,8 @@ Second, subscribe to any events on the Dialogue Player you would like to handle.
 
 Finally, call `Play()` on the Player. This will advance the player to the first node.
 
+To support Wait nodes, be sure to call `Update()` on all active Dialogue Players each frame.
+
 ### Dialogue Player Callbacks
 `DD.DialoguePlayer` has several events you can subscribe to to handle various aspects of dialogue running. Each has a static "Global" version and a non-static "Override version". Subscribe to the Global events when you want to handle events for any dialogue the same way. Subscribe to the Override events when you need special handling for a particular Dialogue Player.
 
