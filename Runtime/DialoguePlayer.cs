@@ -42,6 +42,14 @@ namespace DD
 		public BaseNode CurrentNode { get; private set; }
 
 		/// <summary>
+		/// Returns true if the dialogue has ended.
+		/// </summary>
+		public bool IsFinished
+		{
+			get { return CurrentNode == null; }
+		}
+
+		/// <summary>
 		/// The language to use.
 		/// </summary>
 		/// <seealso cref="SetLanguage"/>
@@ -220,6 +228,7 @@ namespace DD
 			}
 			else
 			{
+				CurrentNode = null;
 				if (OnDialogueEnded != null)
 				{
 					OnDialogueEnded(this);
