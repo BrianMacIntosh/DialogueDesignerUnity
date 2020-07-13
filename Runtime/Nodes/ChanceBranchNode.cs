@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Dialogue node that branches to one of two possible next nodes based on a random chance.
+	/// </summary>
 	public class ChanceBranchNode : BaseNode
 	{
 		/// <summary>
@@ -23,6 +26,9 @@ namespace DD
 		[field: SerializeField]
 		public string Branch2 { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

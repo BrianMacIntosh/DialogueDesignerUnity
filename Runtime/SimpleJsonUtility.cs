@@ -1,11 +1,20 @@
 ﻿using SimpleJSON;
 using UnityEngine;
 
+/// <summary>
+/// Interface for objects that can be populated from JSON.
+/// </summary>
 public interface IJsonDeserializable
 {
+	/// <summary>
+	/// Fills this object's data from a <see cref="JSONNode"/>.
+	/// </summary>
 	void Deserialize(JSONNode node);
 }
 
+/// <summary>
+/// Contains utility functions for reading JSON properties.
+/// </summary>
 public static class SimpleJsonUtility
 {
 	/// <summary>

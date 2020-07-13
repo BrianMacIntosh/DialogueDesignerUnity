@@ -8,7 +8,7 @@ namespace DD
 	/// <summary>
 	/// Tracks the state of a repeat node in the stack.
 	/// </summary>
-	public struct DialogueRepeat
+	internal struct DialogueRepeat
 	{
 		public string NodeName;
 
@@ -97,6 +97,9 @@ namespace DD
 		/// </summary>
 		public event ExecuteDelegate OverrideOnExecuteScript;
 
+		/// <summary>
+		/// Delegate for script execution events.
+		/// </summary>
 		public delegate void ExecuteDelegate(DialoguePlayer sender, string script);
 
 		/// <summary>
@@ -108,6 +111,11 @@ namespace DD
 		/// </summary>
 		public event ConditionDelegate OverrideOnEvaluateCondition;
 
+		/// <summary>
+		/// Delegate for condition evaluation events.
+		/// </summary>
+		/// <param name="sender">The Player sending the event.</param>
+		/// <param name="script">The condition to parse and evaluate.</param>
 		public delegate bool ConditionDelegate(DialoguePlayer sender, string script);
 
 		/// <summary>
@@ -121,6 +129,9 @@ namespace DD
 		/// <remarks>You must call <see cref="AdvanceMessage(int)"/> to advance the node.</remarks>
 		public event ShowMessageDelegate OverrideOnShowMessage;
 
+		/// <summary>
+		/// Delegate for show message events.
+		/// </summary>
 		public delegate void ShowMessageDelegate(DialoguePlayer sender, ShowMessageNode node);
 		
 		/// <summary>
@@ -128,8 +139,15 @@ namespace DD
 		/// </summary>
 		public event DialogueEndedDelegate OnDialogueEnded;
 
+		/// <summary>
+		/// Delegate for dialogue-ended events.
+		/// </summary>
 		public delegate void DialogueEndedDelegate(DialoguePlayer sender);
 
+		/// <summary>
+		/// Creates a new <see cref="DialoguePlayer"/> to play the specified <see cref="Dialogue"/>.
+		/// </summary>
+		/// <remarks>Multiple players can play the same dialogue simultaneously.</remarks>
 		public DialoguePlayer(Dialogue dialogue)
 		{
 			Dialogue = dialogue;
@@ -137,6 +155,9 @@ namespace DD
 			CurrentNode = Dialogue.GetStartNode();
 		}
 
+		/// <summary>
+		/// Update function. Call this every frame the conversation is running.
+		/// </summary>
 		public void Update()
 		{
 			WaitNode currentWait = CurrentNode as WaitNode;

@@ -5,15 +5,18 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Enumeration defining who the speaker is for a particular node.
+	/// </summary>
 	public enum SpeakerType
 	{
 		/// <summary>
-		/// Use <see cref="Node.Character"/> to find the character.
+		/// Use <see cref="ShowMessageNode.Character"/> to find the character.
 		/// </summary>
 		Character,
 
 		/// <summary>
-		/// Use <see cref="Node.ObjectPath"/> to find the character.
+		/// Use <see cref="ShowMessageNode.ObjectPath"/> to find the character.
 		/// </summary>
 		CustomPath,
 
@@ -41,6 +44,9 @@ namespace DD
 		[field: SerializeField]
 		public string Text { get; private set; }
 
+		/// <summary>
+		/// Constructs a new language-text pair.
+		/// </summary>
 		public LanguageText(string language, string text)
 		{
 			Language = language;
@@ -57,12 +63,20 @@ namespace DD
 		/// <summary>
 		/// The text in each language it's available in.
 		/// </summary>
+		/// <remarks>Same content as <see cref="TextsDictionary"/>.</remarks>
 		[field: SerializeField]
 		public LanguageText[] LanguageTexts { get; private set; }
 
+		/// <summary>
+		/// A dictionary mapping each language code to its text.
+		/// </summary>
+		/// <remarks>Same content as <see cref="LanguageTexts"/>.</remarks>
 		[field: NonSerialized]
 		public Dictionary<string, string> TextsDictionary { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public void Deserialize(JSONNode node)
 		{
 			JSONObject textObjectNode = node as JSONObject;
@@ -102,11 +116,17 @@ namespace DD
 			}
 		}
 
+		/// <summary>
+		/// Unity serialization callback (do not call).
+		/// </summary>
 		public void OnBeforeSerialize()
 		{
 
 		}
 
+		/// <summary>
+		/// Unity serialization callback (do not call).
+		/// </summary>
 		public void OnAfterDeserialize()
 		{
 			TextsDictionary = new Dictionary<string, string>(LanguageTexts.Length, StringComparer.InvariantCultureIgnoreCase);
@@ -117,6 +137,9 @@ namespace DD
 		}
 	}
 
+	/// <summary>
+	/// Base class for a dialogue node that displays message text to the player.
+	/// </summary>
 	public abstract class ShowMessageNode : BaseNode
 	{
 		/// <summary>
@@ -155,6 +178,9 @@ namespace DD
 		[field: SerializeField]
 		public NodeText Text { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

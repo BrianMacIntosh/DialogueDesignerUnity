@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Dialogue node that branches to one of two next nodes based on the result of a condition.
+	/// </summary>
 	public class ConditionBranchNode : BaseNode
 	{
 		/// <summary>
@@ -23,6 +26,9 @@ namespace DD
 		[field: SerializeField]
 		public string BranchTrueNext { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

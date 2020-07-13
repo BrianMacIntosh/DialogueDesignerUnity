@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Data about one possible response (choice) for a <see cref="ShowMessageNodeChoice"/>.
+	/// </summary>
 	[Serializable]
 	public struct Choice : IJsonDeserializable
 	{
@@ -39,6 +42,9 @@ namespace DD
 			return !IsCondition || state.EvaluateCondition(Condition);
 		}
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public void Deserialize(JSONNode node)
 		{
 			Condition = node.GetStringChild("condition");
@@ -48,6 +54,9 @@ namespace DD
 		}
 	}
 
+	/// <summary>
+	/// Dialogue node that shows a message and provides the player with a number of choices.
+	/// </summary>
 	public class ShowMessageNodeChoice : ShowMessageNode
 	{
 		/// <summary>
@@ -56,6 +65,9 @@ namespace DD
 		[field: SerializeField]
 		public Choice[] Choices { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

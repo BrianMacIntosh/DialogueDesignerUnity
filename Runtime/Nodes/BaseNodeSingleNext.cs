@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Base class for a dialogue node with only a single next node.
+	/// </summary>
 	public abstract class BaseNodeSingleNext : BaseNode
 	{
 		/// <summary>
@@ -14,6 +17,9 @@ namespace DD
 			get; private set;
 		}
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

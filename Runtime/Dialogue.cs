@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Represents one loaded and parsed dialogue file.
+	/// </summary>
 	public class Dialogue : ScriptableObject, IJsonDeserializable, ISerializationCallbackReceiver
 	{
 		/// <summary>
@@ -205,11 +208,17 @@ namespace DD
 			OnAfterDeserialize();
 		}
 
+		/// <summary>
+		/// Unity serialization callback (do not call).
+		/// </summary>
 		public void OnBeforeSerialize()
 		{
 			
 		}
 
+		/// <summary>
+		/// Unity serialization callback (do not call).
+		/// </summary>
 		public void OnAfterDeserialize()
 		{
 			NodesDictionary = new Dictionary<string, BaseNode>(Nodes.Length, StringComparer.InvariantCulture);

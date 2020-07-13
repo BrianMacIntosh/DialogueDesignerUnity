@@ -20,6 +20,9 @@ namespace DD
 		[field: SerializeField]
 		public string Title { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public virtual void Deserialize(JSONNode node)
 		{
 			NodeName = node.GetStringChild("node_name");
@@ -28,6 +31,9 @@ namespace DD
 			name = Title;
 		}
 
+		/// <summary>
+		/// Returns a debug string describing this node.
+		/// </summary>
 		public string GetDebugName()
 		{
 			return string.Format("{0} ({1})", Title, NodeName);

@@ -4,10 +4,24 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Enumeration of possible data types for conversation local variables.
+	/// </summary>
 	public enum VariableType
 	{
+		/// <summary>
+		/// String variable.
+		/// </summary>
 		String = 0,
+
+		/// <summary>
+		/// Integer variable.
+		/// </summary>
 		Integer = 1,
+
+		/// <summary>
+		/// Boolean variable.
+		/// </summary>
 		Bool = 2,
 	}
 
@@ -29,15 +43,27 @@ namespace DD
 		[field: SerializeField]
 		public VariableType Type { get; private set; }
 
+		/// <summary>
+		/// If the variable is a <see cref="VariableType.String"/>, the value.
+		/// </summary>
 		[field: SerializeField]
 		public string StringValue { get; private set; }
 
+		/// <summary>
+		/// If the variable is a <see cref="VariableType.Integer"/>, the value.
+		/// </summary>
 		[field: SerializeField]
 		public int IntValue { get; private set; }
 
+		/// <summary>
+		/// If the variable is a <see cref="VariableType.Bool"/>, the value.
+		/// </summary>
 		[field: SerializeField]
 		public bool BoolValue { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public void Deserialize(JSONNode node)
 		{
 			Type = (VariableType)node.GetIntChild("type");

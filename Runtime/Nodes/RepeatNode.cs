@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Dialogue node that repeats a next node a set number of times, then moves to a second next node.
+	/// </summary>
 	public class RepeatNode : BaseNode
 	{
 		/// <summary>
@@ -23,6 +26,9 @@ namespace DD
 		[field: SerializeField]
 		public int Value { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

@@ -4,13 +4,30 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// A type of operation that can be done to an Integer local variable.
+	/// </summary>
 	public enum VariableOperationType
 	{
+		/// <summary>
+		/// Directly sets the value of the variable.
+		/// </summary>
 		Set,
+
+		/// <summary>
+		/// Adds an amount to the variable.
+		/// </summary>
 		Add,
+
+		/// <summary>
+		/// Subtracts an amount from the variable.
+		/// </summary>
 		Subtract,
 	}
 
+	/// <summary>
+	/// Dialogue node that sets the value of a local integer variable.
+	/// </summary>
 	public class SetLocalVariableIntNode : SetLocalVariableNode
 	{
 		/// <summary>
@@ -25,6 +42,9 @@ namespace DD
 		[SerializeField]
 		public int Value { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);

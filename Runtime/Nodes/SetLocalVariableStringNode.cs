@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace DD
 {
+	/// <summary>
+	/// Dialogue node that sets the value of a string local variable.
+	/// </summary>
 	public class SetLocalVariableStringNode : SetLocalVariableNode
 	{
 		/// <summary>
@@ -11,6 +14,9 @@ namespace DD
 		[SerializeField]
 		public string Value { get; private set; }
 
+		/// <summary>
+		/// Fills this object's data from a <see cref="JSONNode"/>.
+		/// </summary>
 		public override void Deserialize(JSONNode node)
 		{
 			base.Deserialize(node);
