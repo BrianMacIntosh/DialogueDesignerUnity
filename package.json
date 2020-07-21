@@ -1,6 +1,6 @@
 {
 	"name": "com.brianmacintosh.dialoguedesigner",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"displayName": "Dialogue Designer Runtime",
 	"description": "Runtime for dialogue files from the Dialogue Designer tool.",
 	"unity": "2019.3",
