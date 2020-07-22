@@ -8,6 +8,10 @@ Add this pair to the `dependencies` in your project's `Packages/manifest.json`:
 
     "com.brianmacintosh.dialoguedesigner": "https://github.com/BrianMacIntosh/DialogueDesignerUnity.git",
 
+## Example Implementation
+
+A simple example script can be found here: https://gist.github.com/BrianMacIntosh/dae7e9870e29632271cfcc66f45f1403
+
 ## Loading Dialogues
 You should place the raw JSON files exported by Dialogue Designer in your Unity Assets folder so they will be imported as TextAssets.
 
