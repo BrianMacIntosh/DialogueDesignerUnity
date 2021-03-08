@@ -179,6 +179,14 @@ namespace DD
 		public NodeText Text { get; private set; }
 
 		/// <summary>
+		/// Returns the text for this node in the specified language.
+		/// </summary>
+		public string GetText(string language)
+		{
+			return Text.GetText(language, this);
+		}
+
+		/// <summary>
 		/// Fills this object's data from a <see cref="JSONNode"/>.
 		/// </summary>
 		public override void Deserialize(JSONNode node)

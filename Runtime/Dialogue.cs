@@ -158,11 +158,12 @@ namespace DD
 						newNode = CreateInstance<RepeatNode>();
 						break;
 					case "set_local_variable":
-						if (arrayElementNode["toggle"])
+						JSONNode valueNode = arrayElementNode["value"];
+						if (valueNode is JSONBool)
 						{
 							newNode = CreateInstance<SetLocalVariableBoolNode>();
 						}
-						else if (arrayElementNode["operation_type"])
+						else if (valueNode is JSONNumber)
 						{
 							newNode = CreateInstance<SetLocalVariableIntNode>();
 						}

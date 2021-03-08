@@ -66,6 +66,18 @@ namespace DD
 		public Choice[] Choices { get; private set; }
 
 		/// <summary>
+		/// Returns the text of the specified choice in the specified language.
+		/// </summary>
+		public string GetChoiceText(int index, string language)
+		{
+			if (index < 0 || index >= Choices.Length)
+			{
+				throw new ArgumentOutOfRangeException("index");
+			}
+			return Choices[index].Text.GetText(language, this);
+		}
+
+		/// <summary>
 		/// Fills this object's data from a <see cref="JSONNode"/>.
 		/// </summary>
 		public override void Deserialize(JSONNode node)
