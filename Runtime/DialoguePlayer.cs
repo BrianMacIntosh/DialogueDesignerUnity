@@ -291,7 +291,7 @@ namespace DD
 		{
 			if (!Dialogue.Languages.Contains(language, StringComparer.InvariantCultureIgnoreCase))
 			{
-				Debug.LogErrorFormat("Dialogue '{0}' does not have language '{1}'.");
+				Debug.LogErrorFormat("Dialogue '{0}' does not have language '{1}'.", Dialogue.name, language);
 			}
 			else
 			{
