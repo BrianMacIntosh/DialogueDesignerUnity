@@ -267,6 +267,18 @@ namespace DD
 		}
 
 		/// <summary>
+		/// Immediately ends this dialogue.
+		/// </summary>
+		public void ForceEnd()
+		{
+			CurrentNode = null;
+			if (OnDialogueEnded != null)
+			{
+				OnDialogueEnded(this);
+			}
+		}
+
+		/// <summary>
 		/// Pushes and navigates a new repeat node.
 		/// </summary>
 		public void PushRepeatNode(RepeatNode node)
